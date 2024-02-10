@@ -1,18 +1,18 @@
 import {NavLink} from "react-router-dom";
 import React from "react";
 
-type navItem={
-    linkTo:string;
-    title:string;
+type navItem = {
+    linkTo: string;
+    title: string;
 }
 
-const NavigationItem:React.FC<navItem> = ({linkTo, title})=>{
+const NavigationItem: React.FC<navItem> = ({linkTo, title}) => {
     return (<NavLink
         to={linkTo}
-        className={({ isActive }) =>
+        className={({isActive}) =>
             isActive
-                ? "bg-gray-200 rounded px-2 py-1 text-gray-900 transition-all duration-300"
-                : "text-gray-400 rounded px-2 py-1 hover:bg-gray-200 hover:text-gray-900 transition-all duration-300"
+                ? "w-full flex justify-center bg-gray-200 rounded-sm p-3 text-gray-900 transition-all duration-300"
+                : "w-full flex justify-center text-gray-400 rounded-sm p-3 hover:bg-gray-200 hover:text-gray-900 transition-all duration-300"
         }
     >
         {title}
