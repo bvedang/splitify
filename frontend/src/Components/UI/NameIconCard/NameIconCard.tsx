@@ -21,13 +21,18 @@ const NameIconCard: React.FC<NameCard> = ({firstName, lastName, deletePerson}) =
                     <div className="p-4 text-gray-300 ">{firstName} {lastName} will not be considered in current
                         Item
                     </div>
-                    <div className="flex mb-4 justify-between gap-2">
-                        <button className="px-4 py-2 bg-gray-600 text-gray-300 rounded w-full shadow-md hover:bg-gray-700 focus:outline-none focus:border-gray-700 focus:ring active:bg-gray-500 transition shadow-gray-600/50 ease-in-out duration-300" onClick={closeModal}>Cancel</button>
-                        <button className="px-4 py-2 bg-red-600 text-gray-300 rounded w-full shadow-md hover:bg-red-700 focus:outline-none focus:border-red-700 focus:ring active:bg-red-600 transition shadow-red-600/50 ease-in-out duration-300" onClick={() => {
-                            deletePerson()
-                            closeModal()
-                        }
-                        }>Delete
+                    <div className="flex mb-4 justify-end gap-2">
+                        <button
+                            className="px-4 py-2 bg-gray-600 text-gray-300 rounded shadow-md hover:bg-gray-700 focus:outline-none focus:border-gray-700 focus:ring active:bg-gray-500 transition shadow-gray-600/50 ease-in-out duration-300"
+                            onClick={closeModal}>Cancel
+                        </button>
+                        <button
+                            className="px-4 py-2 bg-red-600 text-gray-300 rounded  shadow-md hover:bg-red-700 focus:outline-none focus:border-red-700 focus:ring active:bg-red-600 transition shadow-red-600/50 ease-in-out duration-300"
+                            onClick={() => {
+                                deletePerson()
+                                closeModal()
+                            }
+                            }>Delete
                         </button>
                     </div>
                 </div>
