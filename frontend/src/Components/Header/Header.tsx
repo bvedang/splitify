@@ -2,7 +2,7 @@ import NavigationItem from "../UI/NavigationItem/NavigationItem.tsx";
 
 export default function Header() {
     return (
-        <header className="">
+        <header className="py-2">
             <nav className="flex flex-col px-2 space-y-1 items-center md:hidden">
                 <div className="text-2xl text-gray-300 p-2">LOGO</div>
                 <NavigationItem title="Home" linkTo="/"/>
