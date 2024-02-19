@@ -35,16 +35,24 @@ const BillItemsList: React.FC<IBillItems> = ({
         <div className="container mb-4 bg-gray-800 rounded p-2 shadow-lg shadow-gray-400/10">
             <div className="flex flex-col my-2 justify-between text-gray-300">
                 <Modal title={"Delete Item"} isOpen={isModalOpen} onClose={closeModal}>
-                    <div className="p-4 text-gray-300">{name} ${cost} will Be removed form the Items List
-                    </div>
-                    <div className="buttonGroup">
-                        <button className="btnFullwidth secondary button" onClick={closeModal}>Cancel</button>
-                        <button className="btnFullwidth danger button" onClick={() => {
-                            deleteItem(itemIndex);
-                            closeModal()
-                        }
-                        }>Delete
-                        </button>
+                    <div className="flex flex-col w-full mb-4">
+                        <div className="p-2 text-gray-300">
+                            {name} ${cost} will Be removed form the Items List
+                        </div>
+                        <div className="flex mb-4 justify-end gap-2">
+                            <button
+                                className=" px-4 py-2 bg-gray-600 text-gray-300 rounded shadow-md hover:bg-gray-700 focus:outline-none focus:border-gray-700 focus:ring active:bg-gray-500 transition shadow-gray-600/50 ease-in-out duration-300"
+                                onClick={closeModal}>Cancel
+                            </button>
+                            <button
+                                className="px-4 py-2 bg-red-600 text-gray-300 rounded shadow-md hover:bg-red-700 focus:outline-none focus:border-red-700 focus:ring active:bg-red-600 transition shadow-red-600/50 ease-in-out duration-300"
+                                onClick={() => {
+                                    deleteItem(itemIndex);
+                                    closeModal()
+                                }
+                                }>Delete
+                            </button>
+                        </div>
                     </div>
                 </Modal>
                 <div className="flex justify-between items-center w-full capitalize">
