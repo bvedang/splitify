@@ -45,7 +45,7 @@ function SignIn() {
         <div className="flex grow flex-col items-center justify-center">
             <Card>
                 <div className="py-8">
-                    <h2 className="text-center text-2xl text-gray-300 pb-4">Login</h2>
+                    <h2 className="text-center text-2xl text-gray-300">Login</h2>
                     <form className="flex flex-col w-full mx-auto" onSubmit={handleLoginSubmit}>
                         {formError &&
                             <>
@@ -54,7 +54,7 @@ function SignIn() {
                             </>}
                         <div className="my-2">
                             <p>
-                                <label className="">Email</label>
+                                <label className="text-gray-200">Email</label>
                             </p>
                             <InputField value={email}
                                         onChange={handleEmailOnChange}
@@ -65,7 +65,7 @@ function SignIn() {
                             />
                         </div>
                         <div className="my-4">
-                            <p><label>Password</label></p>
+                            <p><label className="text-gray-200">Password</label></p>
                             <div
                                 className="flex flex-row bg-gray-700 focus-within:ring focus:ring-blue-500 focus-within:ring-blue-500 rounded w-full text-gray-300 outline-none">
                                 <InputField value={password}
