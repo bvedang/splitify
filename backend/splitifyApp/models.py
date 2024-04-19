@@ -1,12 +1,14 @@
 from splitifyApp import db
+from uuid import uuid4
 from datetime import datetime, timedelta
 
 
 class User(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.String(255), primary_key=True, default=lambda: str(uuid4()))
     email = db.Column(db.String(255), unique=True, nullable=False)
     password = db.Column(db.String(255), nullable=False)
-    name = db.Column(db.String(255))
+    firstName = db.Column(db.String(255),nullable=False)
+    lastName = db.Column(db.String(255),nullable=False)
     verified = db.Column(db.Boolean, default=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
     updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
@@ -19,6 +21,19 @@ class User(db.Model):
     payments = db.relationship('Payment', backref='user', lazy=True)
     expense_limits = db.relationship('ExpenseLimit', backref='user', lazy=True)
     notification_logs = db.relationship('NotificationLog', backref='user', lazy=True)
+
+    def __init__(self, email, password, firstName, lastName) -> None:
+        self.email = email
+        self.password = password
+        self.firstName = firstName
+        self.lastName = lastName
+
+    def __str__(self):
+        return f'<User {self.email}>'
+
+    def __repr__(self):
+        return f'<User {self.email}>'
+    
 
 class OAuthProvider(db.Model):
     id = db.Column(db.Integer, primary_key=True)
